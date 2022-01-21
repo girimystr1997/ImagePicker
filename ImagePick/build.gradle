@@ -61,7 +61,7 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
                 groupId = 'com.github.kili'
-                artifactId = 'ImagePickerLibs'
+                artifactId = 'ImagePickLibs'
                 version = '1.0'
             }
         }
