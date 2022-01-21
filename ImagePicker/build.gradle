@@ -5,7 +5,7 @@ plugins {
     id 'kotlin-parcelize'
     id 'maven-publish'
 }
-group = 'com.github.girimystr1997'
+group = 'com.github.kili'
 version = '1.0'
 
 android {
@@ -60,7 +60,7 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
                 from components.release
-                groupId = 'com.github.girimystr1997'
+                groupId = 'com.github.kili'
                 artifactId = 'ImagePickerLibs'
                 version = '1.0'
             }
