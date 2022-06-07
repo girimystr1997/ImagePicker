@@ -11,6 +11,7 @@ class ImagePickerBuilder {
         setShowImages(status)
         return this
     }
+
     fun start(context: Context, resultLauncher: ActivityResultLauncher<Intent>) {
         resultLauncher.launch(
             Intent(context, ImagePicker::class.java)
