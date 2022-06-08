@@ -71,6 +71,11 @@ class ImagePicker : AppCompatActivity() {
                 val bitMapData: ByteArray = bos.toByteArray()
                 if (currentPhotoPath.isNotEmpty()) {
                     val filee = File(currentPhotoPath)
+                    val fos = FileOutputStream(filee)
+                    fos.write(bitMapData)
+                    fos.flush()
+                    fos.close()
+                    delay(1000)
                     fileModel = FileModel(
                         filee.name,
                         filee.path,
@@ -79,11 +84,6 @@ class ImagePicker : AppCompatActivity() {
                         Integer.parseInt((filee.length()/1024).toString()),
                         filee
                     )
-                    val fos = FileOutputStream(fileModel!!.file)
-                    fos.write(bitMapData)
-                    fos.flush()
-                    fos.close()
-                    delay(1000)
                     val intent = Intent()
                     val bundle = Bundle()
                     bundle.putParcelable("FilePath", fileModel)
