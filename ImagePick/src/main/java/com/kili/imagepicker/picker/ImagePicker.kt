@@ -272,7 +272,7 @@ class ImagePicker : AppCompatActivity() {
                     grantResults[1] != PackageManager.PERMISSION_GRANTED ||
                     grantResults[2] != PackageManager.PERMISSION_GRANTED
                 ) {
-                    Toast.makeText(this, "", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(this, "", Toast.LENGTH_SHORT).show()
                     ActivityCompat.requestPermissions(
                         this@ImagePicker,
                         permissions,
