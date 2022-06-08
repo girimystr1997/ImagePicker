@@ -76,7 +76,7 @@ class ImagePicker : AppCompatActivity() {
                         filee.path,
                         filee.absolutePath,
                         filee.name,
-                        0,
+                        Integer.parseInt((filee.length()/1024).toString()),
                         filee
                     )
                     val fos = FileOutputStream(fileModel!!.file)
