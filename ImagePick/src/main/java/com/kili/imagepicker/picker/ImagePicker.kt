@@ -69,8 +69,8 @@ class ImagePicker : AppCompatActivity() {
                     dataBinding.CropImageView.croppedImage
                     val bos = ByteArrayOutputStream()
                     dataBinding.CropImageView.croppedImage.compress(
-                        Bitmap.CompressFormat.PNG,
-                        100,
+                        Bitmap.CompressFormat.JPEG,
+                        50,
                         bos
                     )
                     val bitMapData: ByteArray = bos.toByteArray()
