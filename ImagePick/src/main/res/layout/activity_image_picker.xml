@@ -11,7 +11,7 @@
             android:id="@+id/CropImageView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            custom:aspectRatioX="5"
+            custom:aspectRatioX="1"
             custom:layout_constraintBottom_toBottomOf="parent"
             custom:layout_constraintEnd_toEndOf="parent"
             custom:layout_constraintStart_toStartOf="parent"
