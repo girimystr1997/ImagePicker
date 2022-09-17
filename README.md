@@ -3,7 +3,7 @@ Android Library for the Images Selector.
 
 ###  build.gradle
 
-    implementation 'com.github.girimystr1997:ImagePicker:v1.0.0'
+    implementation 'com.github.girimystr1997:ImagePicker:v1.0.7'
 
 ### settings.gradle
 
