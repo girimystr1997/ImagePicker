@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="ImagePick/src/main/res/layout/activity_image_picker.xml" value="0.1" />
         <entry key="ImagePicker/src/main/res/drawable/ic_pdf.xml" value="0.1962962962962963" />
         <entry key="ImagePicker/src/main/res/layout/activity_image_picker.xml" value="0.19537037037037036" />
         <entry key="ImagePicker/src/main/res/layout/bottom_sheet_dialog.xml" value="0.19537037037037036" />

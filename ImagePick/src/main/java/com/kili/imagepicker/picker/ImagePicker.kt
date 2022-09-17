@@ -65,34 +65,43 @@ class ImagePicker : AppCompatActivity() {
         dataBinding.btnOk.setOnClickListener {
             CustomProgressbar.showProgressBar(this, false)
             GlobalScope.launch(Dispatchers.IO) {
-                dataBinding.CropImageView.croppedImage
-                val bos = ByteArrayOutputStream()
-                dataBinding.CropImageView.croppedImage.compress(Bitmap.CompressFormat.PNG, 0, bos)
-                val bitMapData: ByteArray = bos.toByteArray()
-                if (currentPhotoPath.isNotEmpty()) {
-                    val filee = File(currentPhotoPath)
-                    val fos = FileOutputStream(filee)
-                    fos.write(bitMapData)
-                    fos.flush()
-                    fos.close()
-                    delay(1000)
-                    fileModel = FileModel(
-                        filee.name,
-                        filee.path,
-                        filee.absolutePath,
-                        filee.name,
-                        Integer.parseInt((filee.length()/1024).toString()),
-                        filee
+                try {
+                    dataBinding.CropImageView.croppedImage
+                    val bos = ByteArrayOutputStream()
+                    dataBinding.CropImageView.croppedImage.compress(
+                        Bitmap.CompressFormat.PNG,
+                        0,
+                        bos
                     )
-                    val intent = Intent()
-                    val bundle = Bundle()
-                    bundle.putParcelable("FilePath", fileModel)
-                    intent.putExtra("FilePath", bundle)
-                    setResult(RESULT_OK, intent)
-                    finish()
+                    val bitMapData: ByteArray = bos.toByteArray()
+                    if (currentPhotoPath.isNotEmpty()) {
+                        val filee = File(currentPhotoPath)
+                        val fos = FileOutputStream(filee)
+                        fos.write(bitMapData)
+                        fos.flush()
+                        fos.close()
+                        delay(1000)
+                        fileModel = FileModel(
+                            filee.name,
+                            filee.path,
+                            filee.absolutePath,
+                            filee.name,
+                            Integer.parseInt((filee.length() / 1024).toString()),
+                            filee
+                        )
+                        val intent = Intent()
+                        val bundle = Bundle()
+                        bundle.putParcelable("FilePath", fileModel)
+                        intent.putExtra("FilePath", bundle)
+                        setResult(RESULT_OK, intent)
+                        finish()
+                        CustomProgressbar.hideProgressBar()
+                    } else {
+                        println("error")
+                    }
+                } catch (e: Exception) {
                     CustomProgressbar.hideProgressBar()
-                } else {
-                    println("error")
+                    println("Image size cannot cropped more than a limit")
                 }
             }
         }
